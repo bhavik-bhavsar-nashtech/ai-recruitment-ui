@@ -8,11 +8,7 @@ function Analysis() {
     return <p>No data available</p>;
   }
 
-<div
-  dangerouslySetInnerHTML={{
-    __html: data.screening.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
-  }}
-/>
+  console.log("Received data in Analysis page:", data);
 
   return (
     <div>
@@ -20,33 +16,40 @@ function Analysis() {
         Candidate Analysis
       </h1>
 
-      {/* Name */}
+      {/* Candidate Name */}
       <div className="bg-white p-6 rounded-2xl shadow mb-6">
         <h2 className="text-lg font-bold">Candidate</h2>
-        <p>{data.name}</p>
+        <p>{data.candidate}</p> {/* ✅ FIXED */}
       </div>
 
-      {/* Screening */}
+      {/* Score */}
       <div className="bg-white p-6 rounded-2xl shadow mb-6">
-        <h2 className="text-lg font-bold mb-2">Screening Result</h2>
-        <pre className="whitespace-pre-wrap text-sm">
-          {data.screening}
-        </pre>
+        <h2 className="text-lg font-bold">Score</h2>
+        <p className="text-xl font-semibold">
+          {data.result?.score} / 100
+        </p>
       </div>
 
-      {/* Interview */}
+      {/* Decision */}
       <div className="bg-white p-6 rounded-2xl shadow mb-6">
-        <h2 className="text-lg font-bold mb-2">Interview Details</h2>
-        <p>Date: {data.interview?.date}</p>
-        <p>Time: {data.interview?.time}</p>
+        <h2 className="text-lg font-bold">Decision</h2>
+        <p
+          className={`font-semibold ${
+            data.result?.decision === "Shortlisted"
+              ? "text-green-600"
+              : "text-red-600"
+          }`}
+        >
+          {data.result?.decision}
+        </p>
       </div>
 
-      {/* Offer Letter */}
-      <div className="bg-white p-6 rounded-2xl shadow">
-        <h2 className="text-lg font-bold mb-2">Offer Letter</h2>
-        <pre className="whitespace-pre-wrap text-sm">
-          {data.offer}
-        </pre>
+      {/* Summary */}
+      <div className="bg-white p-6 rounded-2xl shadow mb-6">
+        <h2 className="text-lg font-bold mb-2">Summary</h2>
+        <p className="text-sm whitespace-pre-wrap">
+          {data.result?.summary}
+        </p>
       </div>
     </div>
   );

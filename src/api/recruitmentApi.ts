@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://localhost:5001/",
 });
+
 
 export const uploadResume = async (
   file: File,
@@ -11,11 +12,15 @@ export const uploadResume = async (
 ) => {
   const formData = new FormData();
 
-  formData.append("name", name);
-  formData.append("jobDescription", jobDescription);
-  formData.append("resume", file); // ✅ IMPORTANT: correct key
+  // ✅ ONLY file goes in FormData
+  formData.append("resume", file);
 
-  const response = await API.post("/upload-resume", formData);
+  const response = await API.post("/upload-resume", formData, {
+    params: {
+      name: name,
+      jobDescription: jobDescription,
+    },
+  });
 
   return response.data;
 };
