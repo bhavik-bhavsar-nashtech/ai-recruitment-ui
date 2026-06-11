@@ -3,6 +3,7 @@ import MainLayout from "./layouts/MainLayout";
 import Card from "./components/Card";
 import Upload from "./pages/Upload";
 import Analysis from "./pages/Analysis";
+import UploadJdResume from "./pages/UploadJdResume";
 
 function Dashboard() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/upload-jd-resume" element={<UploadJdResume />} />
           <Route path="/analysis" element={<Analysis />} />
         </Routes>
       </MainLayout>

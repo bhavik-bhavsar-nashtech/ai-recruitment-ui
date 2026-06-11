@@ -24,3 +24,18 @@ export const uploadResume = async (
 
   return response.data;
 };
+
+
+export const uploadResumeText = async (
+  name: string,
+  jobDescription: string,
+  resumeText: string
+) => {
+  const response = await API.post("/upload-resume-text", {
+    name,
+    jobDescription,
+    resumeText,
+  });
+
+  return response.data;
+};

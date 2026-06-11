@@ -18,6 +18,9 @@ function MainLayout({ children }: Props) {
           <a href="/upload" className="hover:bg-gray-700 p-2 rounded">
             Upload Resume
           </a>
+          <a href="/upload-jd-resume" className="hover:bg-gray-700 p-2 rounded">
+            Upload JD & Resume
+          </a>
           <a href="/analysis" className="hover:bg-gray-700 p-2 rounded">
             Analysis
           </a>
