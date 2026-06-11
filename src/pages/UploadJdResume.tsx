@@ -31,6 +31,12 @@ function UploadJdResume() {
       return await extractDocxText(file);
     }
 
+    
+    // ✅ NEW: Handle TXT
+    if (file.type === "text/plain") {
+        return await file.text(); // built-in browser API
+    }
+
     throw new Error("Unsupported file type");
   };
 
