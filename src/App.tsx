@@ -9,7 +9,7 @@ function Dashboard() {
   return (
     <div>
       <h1 className="text-2xl font-semibold mb-6">
-        Recruitment Dashboard
+        Recruitment Dashboard Testing
       </h1>
 
       <div className="grid grid-cols-3 gap-4">
