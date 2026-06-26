@@ -29,14 +29,16 @@ jobs:
           npm run build
           npm run test --if-present
 
-      - name: Check build folder
-        run: ls -la
+      - name: Check dist folder
+        run: |
+          ls -la
+          ls -la dist
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: react-build
-          path: build
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
