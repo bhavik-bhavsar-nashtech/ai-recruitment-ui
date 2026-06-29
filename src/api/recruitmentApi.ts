@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://localhost:5001/",
+  baseURL: "https://ai-recruitment-api-g0eqa2ezfjb8d3fw.centralindia-01.azurewebsites.net/", //"https://localhost:5001/",
 });
 
 
